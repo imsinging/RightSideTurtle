@@ -20,9 +20,9 @@ function testt(string)
 function showList(list)
 {
     chrome.storage.local.get(['teststring1'], function(result) {
+
         list = result.teststring1;
         console.log('Value currently is ' + list);
-
         var listArray = list.split(',');
         if(listArray.length > 0)
         {
@@ -80,7 +80,9 @@ function search(string)
             {
                 chrome.storage.local.get(['teststring1'], function(result) {
                     temp = result.teststring1;
-                    saveTemp = temp+','+string;
+                    var listArray = temp.split(',');
+                    listArray.push(string);
+                    saveTemp = listArray.join(',');
                     alert("Data: " + data.ResultSet.Result[0].symbol + "\n name: " + data.ResultSet.Result[0].name);
                     chrome.storage.local.set({
                         'teststring1': saveTemp
