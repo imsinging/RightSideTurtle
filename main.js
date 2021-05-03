@@ -21,6 +21,8 @@ function showList(list)
 {
     chrome.storage.local.get(['teststring1'], function(result) {
 
+        if(result.teststring1 == null)
+            return;
         list = result.teststring1;
         console.log('Value currently is ' + list);
         var listArray = list.split(',');
