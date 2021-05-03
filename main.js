@@ -34,6 +34,8 @@ function showList(list)
                 '<td>最高</td>'+
                 '<td>最低</td>'+
                 '<td>類股</td>'+
+                '<td>內盤</td>'+
+                '<td>外盤</td>'+
                 '<td>操作</td>'+
                 '</tr></table>');
             $.ajaxSettings.async = false;
@@ -54,6 +56,8 @@ function showList(list)
                                 '<td>'+data[0].regularMarketDayHigh+'</td>'+
                                 '<td>'+data[0].regularMarketDayLow+'</td>'+
                                 '<td>'+data[0].sectorName+'</td>'+
+                                '<td style="color:green;">'+data[0].inMarket+' ('+data[0].inMarketPercentage+')</td>'+
+                                '<td style="color:red;">'+data[0].outMarket+' ('+data[0].outMarketPercentage+')</td>'+
                                 '<td><input id="'+clickId+'" type="button" value="X"></td>>'
                                 +'</tr>>'
                             ;
